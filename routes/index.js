@@ -1,18 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var ethers = require('ethers');
 
-
-router.get('/', function (req, res, next) {
-  let value = ethers.utils.bigNumberify("20902747399");
-  return res.json(value);
-
-});
-
-
-router.post('/nonce', function (req, res, next) {
-  let content = req.body.nonce;
-  return res.json(content);
+router.post('/messageParrot', function (req, res, next) {
+  let content = req.body;
+  let message = content.message;
+  let detail = content.detail;
+  return res.json("Message is: "+ message + ", Detail is: " + detail);
 });
 
 module.exports = router;
